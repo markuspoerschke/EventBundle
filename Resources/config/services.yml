@@ -1,0 +1,7 @@
+parameters:
+#    eluceo_event.example.class: Eluceo\EventBundle\Example
+
+services:
+#    eluceo_event.example:
+#        class: %eluceo_event.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
