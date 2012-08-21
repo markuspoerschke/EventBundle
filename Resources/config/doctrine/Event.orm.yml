@@ -1,0 +1,48 @@
+Eluceo\EventBundle\Entity\Event:
+    type: entity
+    table: eluceo_event__event
+    fields:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+        name:
+            type: string
+            length: 255
+        name2:
+            type: string
+            length: 255
+            nullable: true
+        description:
+            type: text
+            nullable: true
+        shortDescription:
+            type: text
+            nullable: true
+        active:
+            type: boolean
+        uniqueSlug:
+            type: string
+            length: 255
+        image:
+            type: string
+            length: 255
+            nullable: true
+
+    manyToMany:
+        categories:
+            targetEntity: Category
+            inversedBy: events
+
+    oneToMany:
+        eventDates:
+            targetEntity: EventDate
+            mappedBy: event
+
+    manyToOne:
+        location:
+            targetEntity: Location
+            inversedBy: events
+
+    lifecycleCallbacks: {  }

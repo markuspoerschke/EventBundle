@@ -1,0 +1,34 @@
+Eluceo\EventBundle\Entity\Location:
+    type: entity
+    table: eluceo_event__location
+    fields:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+        name:
+            type: string
+            length: 255
+        uniqueSlug:
+            type: string
+            length: 255
+        description:
+            type: text
+        street:
+            type: string
+            length: 255
+        zip:
+            type: string
+            length: 255
+        city:
+            type: string
+            length: 255
+
+    lifecycleCallbacks: {  }
+
+    oneToMany:
+        events:
+            targetEntity: Event
+            mappedBy: location
+

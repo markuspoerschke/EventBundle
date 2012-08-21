@@ -1,0 +1,22 @@
+Eluceo\EventBundle\Entity\EventDate:
+    type: entity
+    table: eluceo_event__event_date
+    fields:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+        startDatetime:
+            type: datetime
+        endDatetime:
+            type: datetime
+        noTime:
+            type: boolean
+
+    manyToOne:
+        event:
+            targetEntity: Event
+            inversedBy: eventDates
+
+    lifecycleCallbacks: {  }

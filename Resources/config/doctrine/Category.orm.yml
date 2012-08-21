@@ -1,0 +1,24 @@
+Eluceo\EventBundle\Entity\Category:
+    type: entity
+    table: eluceo_event__category
+    fields:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+        name:
+            type: string
+            length: 255
+        active:
+            type: boolean
+        uniqueSlug:
+            type: string
+            length: 255
+
+    manyToMany:
+        events:
+            targetEntity: Event
+            inversedBy: categories
+
+    lifecycleCallbacks: {  }
