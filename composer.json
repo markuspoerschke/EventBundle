@@ -1,0 +1,6 @@
+{
+    "name":"eluceo/event-bundle",
+    "require":{
+        "php":">=5.4.0"
+    }
+}
