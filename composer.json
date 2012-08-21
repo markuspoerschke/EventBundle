@@ -1,6 +1,22 @@
 {
     "name":"eluceo/event-bundle",
+    "description":"EventBundle for Symfony 2 and Sonata Admin",
+    "homepage":"https://github.com/eluceo/EventBundle",
+    "authors":[
+        {
+            "name":"Markus Poerschke",
+            "email":"markus@eluceo.de",
+            "role":"Developer"
+        }
+    ],
+    "autoload":{
+        "psr-0":{
+            "Eluceo\\EventBundle":""
+        }
+    },
+    "target-dir":"Eluceo/EventBundle",
     "require":{
-        "php":">=5.4.0"
+        "php":">=5.4.0",
+        "sonata-project/admin-bundle":"dev-master"
     }
 }
