@@ -2,7 +2,7 @@
 
 namespace Eluceo\EventBundle\Util;
 
-class EventManipulator
+class EventDateManipulator
 {
     /**
      * Normalizes Filter-Array
