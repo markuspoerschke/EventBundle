@@ -1,6 +1,6 @@
 {
     "name":"eluceo/event-bundle",
-    "description":"EventBundle for Symfony 2 and Sonata Admin",
+    "description":"EventBundle for Symfony 2 and Sonata Admin. This bundles offers an event-calendar. You can create an event with several dates, upload an event-image and you will be able to upload a picture-gallery for an event.",
     "homepage":"https://github.com/eluceo/EventBundle",
     "authors":[
         {
