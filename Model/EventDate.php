@@ -9,5 +9,6 @@ abstract class EventDate extends BaseEventDate
     function __construct()
     {
         $this->noTime = false;
+        $this->active = false;
     }
 }

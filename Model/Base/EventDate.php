@@ -14,6 +14,8 @@ abstract class EventDate
 
     protected $noTime;
 
+    protected $active;
+
     public function setEndDatetime($endDatetime)
     {
         $this->endDatetime = $endDatetime;
@@ -62,5 +64,15 @@ abstract class EventDate
     public function getStartDatetime()
     {
         return $this->startDatetime;
+    }
+
+    public function setActive($active)
+    {
+        $this->active = $active;
+    }
+
+    public function getActive()
+    {
+        return $this->active;
     }
 }

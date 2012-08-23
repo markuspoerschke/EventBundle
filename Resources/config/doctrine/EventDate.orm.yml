@@ -13,6 +13,8 @@ Eluceo\EventBundle\Entity\EventDate:
             type: datetime
         noTime:
             type: boolean
+        acticve:
+            type: boolean
 
     manyToOne:
         event:
