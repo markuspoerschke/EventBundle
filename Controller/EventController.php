@@ -38,8 +38,8 @@ class EventController extends Controller
         $events  = $this->getEventDateManager()->findByFilters($filters);
 
         $params = array(
-            'filters' => $filters,
-            'events'  => $events
+            'filters'    => $filters,
+            'eventdates' => $events
         );
 
         $response = $this->render('EluceoEventBundle:EventController:index.html.twig', $params);

@@ -1,0 +1,40 @@
+<section class="event">
+
+    <article class="event">
+        <header>
+            <h1>{{ event.name }}</h1>
+            <h2>{{ event.name2 }}</h2>
+        </header>
+
+        <p>
+            {{ ed.event.description }}
+        </p>
+
+        <h3>{{ 'dates'|trans({}, 'EluceoEventBundle') }}</h3>
+        <ul>
+            {% for ed in event.dates %}
+                <li>
+                    {{ date_from_to(ed.startDatetime, ed.endDatetime, ed.noTime) }}
+                </li>
+            {% endfor %}
+        </ul>
+
+        <h3>{{ 'categories'|trans({}, 'EluceoEventBundle') }}</h3>
+        <ul>
+            {% for c in ed.event.categories %}
+                <li>
+                    <a href="{{ category_url(c, filters) }}">
+                        {{ c.name }}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+
+        <p>
+            <a href="{{ event_url(event, filters) }}">
+                {{ 'show_event'|trans({}, 'EluceoEventBundle') }}
+            </a>
+        </p>
+    </article>
+
+</section>
