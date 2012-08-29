@@ -29,7 +29,7 @@ class EventController extends Controller
             throw new \Exception('Id or uniqueSlug is mandatory');
         }
 
-        return $this->getEventManager()->findOneBy(array($field=> $value));
+        return $this->getEventManager()->findOneBy(array($field => $value));
     }
 
     public function indexAction()
@@ -57,7 +57,8 @@ class EventController extends Controller
             throw new NotFoundHttpException('Event not found');
         }
 
-        // @TODO Setting up SEO
+        $seo = $this->getSeo();
+        $seo->setTitle($event->getName());
 
         $params = array(
             'event' => $event,
@@ -93,5 +94,13 @@ class EventController extends Controller
     protected function getEventDateManager()
     {
         return $this->get('eluceo.event.manager.eventdate');
+    }
+
+    /**
+     * @return \Sonata\SeoBundle\Seo\SeoPageInterface
+     */
+    protected function getSeo()
+    {
+        return $this->get('sonata.seo.page');
     }
 }

@@ -15,7 +15,7 @@
             <ul>
                 {% for c in ed.event.categories %}
                     <li>
-                        <a href="{{ category_url(c, filters) }}">
+                        <a href="{{ event_category_url(c, filters) }}">
                             {{ c.name }}
                         </a>
                     </li>

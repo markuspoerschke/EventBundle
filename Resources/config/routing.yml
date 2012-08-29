@@ -1,3 +1,11 @@
-EluceoEventBundle_homepage:
-    pattern:  /hello/{name}
-    defaults: { _controller: EluceoEventBundle:Default:index }
+eluceo.event.index:
+    pattern:
+        /events
+    defaults:
+        _controller: EluceoEventBundle:Event:index
+
+eluceo.event.show:
+    pattern:
+        /events/{year}/{uniqueSlug}
+    defaults:
+        _controller: EluceoEventBundle:Event:show
