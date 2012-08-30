@@ -16,6 +16,11 @@ class EventManager implements EventDateManagerInterface
      */
     protected $em;
 
+    /**
+     * @var \Knp\Component\Pager\Paginator
+     */
+    protected $paginator;
+
     function __construct(\Doctrine\ORM\EntityManager $em, $class)
     {
         $this->em    = $em;
@@ -27,6 +32,11 @@ class EventManager implements EventDateManagerInterface
      * @return \Doctrine\Common\Collections\ArrayCollection
      */
     public function findByFilters(array $filters)
+    {
+        return $this->getQueryWithFilters($filters)->getResult();
+    }
+
+    protected function getQueryWithFilters(array $filters)
     {
         $qb = $this->em->getRepository($this->class)->createQueryBuilder('ed');
 
@@ -66,19 +76,46 @@ class EventManager implements EventDateManagerInterface
         }
 
         // Pagination
-        if (null != @$filters['max_per_page']) {
+        /*if (null != @$filters['max_per_page']) {
             $maxResults  = $filters['max_results'];
             $firstResult = $filters['page'] * $maxResults;
 
             $qb->setMaxResults($maxResults)
                 ->setFirstResult($firstResult);
-        }
+        }*/
 
         // Order
         if (@$filters['order_by']) {
             $qb->orderBy($filters['order_by'], $filters['order']);
         }
 
-        return $qb->getQuery()->getResult();
+        return $qb->getQuery();
+    }
+
+    /**
+     * @param array $filters
+     * @return \Knp\Component\Pager\Pagination\PaginationInterface
+     */
+    public function getPaginationWithFilters(array $filters)
+    {
+        $page       = isset($filters['page']) ? $filters['page'] : null;
+        $maxResults = isset($filters['max_results']) ? $filters['max_results'] : null;
+
+        $query      = $this->getQueryWithFilters($filters);
+        $pagination = $this->getPaginator()->paginate(
+            $query,
+            $page,
+            $maxResults
+        );
+
+        return $pagination;
+    }
+
+    /**
+     * @return \Knp\Component\Pager\Paginator
+     */
+    protected function getPaginator()
+    {
+        return $this->paginator;
     }
 }

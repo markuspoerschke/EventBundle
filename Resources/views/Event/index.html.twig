@@ -1,6 +1,6 @@
 <section class="events">
 
-    {% for ed in eventdates %}
+    {% for ed in pagination %}
         <article class="event">
             <header>
                 <h1>{{ ed.event.name }}</h1>
@@ -29,5 +29,9 @@
             </p>
         </article>
     {% endfor %}
+
+    <div class="pagination">
+        {{ pagination.render()|raw }}
+    </div>
 
 </section>

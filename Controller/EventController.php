@@ -34,12 +34,12 @@ class EventController extends Controller
 
     public function indexAction()
     {
-        $filters = $this->getRequest()->get('filters', array());
-        $events  = $this->getEventDateManager()->findByFilters($filters);
+        $filters    = $this->getRequest()->get('filters', array());
+        $pagination = $this->getEventDateManager()->getPaginationWithFilters($filters);
 
         $params = array(
             'filters'    => $filters,
-            'eventdates' => $events
+            'pagination' => $pagination
         );
 
         $response = $this->render('EluceoEventBundle:EventController:index.html.twig', $params);

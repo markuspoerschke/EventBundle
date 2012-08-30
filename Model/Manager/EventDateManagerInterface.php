@@ -10,4 +10,11 @@ interface EventDateManagerInterface
      * @return \Doctrine\Common\Collections\ArrayCollection
      */
     public function findByFilters(array $filters);
+
+    /**
+     * @abstract
+     * @param array $filters
+     * @return mixed
+     */
+    public function getPaginationWithFilters(array $filters);
 }
