@@ -12,4 +12,9 @@ abstract class Location extends BaseLocation
         $this->uniqueSlug = uniqid('location');
         $this->events     = new ArrayCollection;
     }
+
+    function __toString()
+    {
+        return $this->getName();
+    }
 }

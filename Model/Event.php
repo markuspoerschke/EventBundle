@@ -14,4 +14,9 @@ class Event extends BaseEvent
         $this->categories = new ArrayCollection;
         $this->image      = null;
     }
+
+    public function __toString()
+    {
+        return $this->name;
+    }
 }

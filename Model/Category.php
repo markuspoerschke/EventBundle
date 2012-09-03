@@ -13,4 +13,9 @@ abstract class Category extends BaseCategory
         $this->uniqueSlug = uniqid('category');
         $this->events     = new ArrayCollection;
     }
+
+    function __toString()
+    {
+        return $this->name;
+    }
 }
