@@ -34,6 +34,14 @@ Eluceo\EventBundle\Entity\Event:
         categories:
             targetEntity: Category
             inversedBy: events
+            joinTable:
+                name: eluceo_event_category_event
+                joinColumns:
+                    event_id:
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    group_id:
+                        referencedColumnName: id
 
     oneToMany:
         eventDates:

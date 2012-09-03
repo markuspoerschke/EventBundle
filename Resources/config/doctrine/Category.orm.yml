@@ -19,6 +19,6 @@ Eluceo\EventBundle\Entity\Category:
     manyToMany:
         events:
             targetEntity: Event
-            inversedBy: categories
+            mappedBy: categories
 
     lifecycleCallbacks: {  }
