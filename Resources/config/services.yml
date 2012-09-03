@@ -3,6 +3,8 @@ parameters:
 services:
     eluceo.event.routing.url_generator:
         class: Eluceo\EventBundle\Routing\UrlGenerator
+        arguments:
+            - "@router"
 
     eluceo.event.twig.extension.event:
         class: Eluceo\EventBundle\Twig\Extension\EventExtension
