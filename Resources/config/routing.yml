@@ -1,11 +1,23 @@
 eluceo.event.index:
     pattern:
-        /events
+        /
     defaults:
         _controller: EluceoEventBundle:Event:index
 
 eluceo.event.show:
     pattern:
-        /events/{year}/{uniqueSlug}
+        /{uniqueSlug}
     defaults:
         _controller: EluceoEventBundle:Event:show
+
+eluceo.event_date.show:
+    pattern:
+        /{uniqueSlug}
+    defaults:
+        _controller: EluceoEventBundle:Event:show
+
+eluceo.event.category.index:
+    pattern:
+        /{categorySlug}
+    defaults:
+        _controller: EluceoEventBundle:Event:index

@@ -15,7 +15,7 @@
             <ul>
                 {% for c in ed.event.categories %}
                     <li>
-                        <a href="{{ event_category_url(c, filters) }}">
+                        <a href="{{ event_category_url(c) }}">
                             {{ c.name }}
                         </a>
                     </li>
@@ -23,7 +23,7 @@
             </ul>
 
             <p>
-                <a href="{{ event_url(event, filters) }}">
+                <a href="{{ event_date_url(ed) }}">
                     {{ 'show_event'|trans({}, 'EluceoEventBundle') }}
                 </a>
             </p>
