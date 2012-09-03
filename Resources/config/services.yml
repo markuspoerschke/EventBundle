@@ -1,4 +1,13 @@
 parameters:
+    # Admin Classes:
+    eluceo.event.admin.event.class: Eluceo\EventBundle\Admin\EventAdmin
+    eluceo.event.admin.event_date.class: Eluceo\EventBundle\Admin\EventDateAdmin
+    eluceo.event.admin.location.class: Eluceo\EventBundle\Admin\LocationAdmin
+
+    # Models @todo decide between ORM and ODM, etc..
+    eluceo.event.model.event.class: Eluceo\EventBundle\Entity\Event
+    eluceo.event.model.event_date.class: Eluceo\EventBundle\Entity\EventDate
+    eluceo.event.model.location.class: Eluceo\EventBundle\Entity\Location
 
 services:
     eluceo.event.routing.url_generator:
@@ -12,3 +21,31 @@ services:
             - { name: twig.extension }
         arguments:
             - "@eluceo.event.routing.url_generator"
+
+    # Sonata Admin
+    eluceo.event.admin.event:
+        class: %eluceo.event.admin.event.class%
+        tags:
+            - { name: "sonata.admin", manager_type: orm, group: "Events", label: "Event" }
+        arguments:
+            - ~
+            - %eluceo.event.model.event.class%
+            - SonataAdminBundle:CRUD
+
+    eluceo.event.admin.event_date:
+        class: %eluceo.event.admin.event_date.class%
+        tags:
+            - { name: "sonata.admin", manager_type: orm, group: "Events", label: "EventDates", show_in_dashboard: false }
+        arguments:
+            - ~
+            - %eluceo.event.model.event_date.class%
+            - SonataAdminBundle:CRUD
+
+    eluceo.event.admin.location:
+        class: %eluceo.event.admin.location.class%
+        tags:
+            - { name: "sonata.admin", manager_type: orm, group: "Events", label: "Location" }
+        arguments:
+            - ~
+            - %eluceo.event.model.location.class%
+            - SonataAdminBundle:CRUD

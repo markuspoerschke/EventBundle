@@ -19,4 +19,15 @@ class Event extends BaseEvent
     {
         return $this->name;
     }
+
+    public function addEventDates($eventDates)
+    {
+        if (!is_array($eventDates)) {
+            $eventDates = array($eventDates);
+        }
+
+        foreach ($eventDates as $ed) {
+            $this->eventDates[] = $ed;
+        }
+    }
 }

@@ -23,8 +23,14 @@ class EventAdmin extends Admin
             ->add('description')
             ->add('shortDescription')
             ->add('categories')
-            ->add('location')
+            ->add('location', 'sonata_type_model')
             ->add('active')
-            ->add('eventDates');
+            ->add('eventDates', 'sonata_type_collection', array(
+                'by_reference' => false,
+            ), array(
+                'edit' => 'inline',
+                'inline' => 'table',
+                'sortable'  => 'position',
+            ));
     }
 }

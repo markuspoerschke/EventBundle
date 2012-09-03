@@ -20,7 +20,7 @@ class LocationAdmin extends Admin
     {
         $form
             ->add('name')
-            ->add('description')
+            ->add('description', null, array('required' => false))
             ->add('street')
             ->add('zip')
             ->add('city');
