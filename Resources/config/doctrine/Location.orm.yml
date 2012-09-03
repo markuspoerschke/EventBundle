@@ -15,6 +15,7 @@ Eluceo\EventBundle\Entity\Location:
             length: 255
         description:
             type: text
+            nullable: true
         street:
             type: string
             length: 255
