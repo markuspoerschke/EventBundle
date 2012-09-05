@@ -3,11 +3,13 @@ parameters:
     eluceo.event.admin.event.class: Eluceo\EventBundle\Admin\EventAdmin
     eluceo.event.admin.event_date.class: Eluceo\EventBundle\Admin\EventDateAdmin
     eluceo.event.admin.location.class: Eluceo\EventBundle\Admin\LocationAdmin
+    eluceo.event.admin.category.class: Eluceo\EventBundle\Admin\CategoryAdmin
 
     # Models @todo decide between ORM and ODM, etc..
     eluceo.event.model.event.class: Eluceo\EventBundle\Entity\Event
     eluceo.event.model.event_date.class: Eluceo\EventBundle\Entity\EventDate
     eluceo.event.model.location.class: Eluceo\EventBundle\Entity\Location
+    eluceo.event.model.category.class: Eluceo\EventBundle\Entity\Category
 
 services:
     eluceo.event.routing.url_generator:
@@ -51,3 +53,12 @@ services:
             - SonataAdminBundle:CRUD
         calls:
             - [ "addChild" , [ "@eluceo.event.admin.event" ] ]
+
+    eluceo.event.admin.category:
+        class: %eluceo.event.admin.category.class%
+        tags:
+            - { name: "sonata.admin", manager_type: orm, group: "Events", label: "Category" }
+        arguments:
+            - ~
+            - %eluceo.event.model.category.class%
+            - SonataAdminBundle:CRUD
