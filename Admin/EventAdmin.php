@@ -32,5 +32,10 @@ class EventAdmin extends Admin
                 'inline' => 'table',
                 'sortable'  => 'position',
             ));
+
+        $parent = $this->getParent();
+        if ($this->isChild() && $parent instanceof LocationAdmin) {
+            $form->remove('location');
+        }
     }
 }
