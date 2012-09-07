@@ -25,10 +25,6 @@ Eluceo\EventBundle\Entity\Event:
         uniqueSlug:
             type: string
             length: 255
-        image:
-            type: string
-            length: 255
-            nullable: true
 
     manyToMany:
         categories:
@@ -47,10 +43,16 @@ Eluceo\EventBundle\Entity\Event:
         eventDates:
             targetEntity: EventDate
             mappedBy: event
+            cascade:
+                - all
 
     manyToOne:
         location:
             targetEntity: Location
             inversedBy: events
+        image:
+            targetEntity: Application\Sonata\MediaBundle\Entity\Media
+            cascade:
+                - all
 
     lifecycleCallbacks: {  }
