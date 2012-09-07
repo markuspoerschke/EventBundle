@@ -98,10 +98,13 @@ class EventManager implements EventDateManagerInterface
      */
     public function getPaginationWithFilters(array $filters)
     {
+        $filters = self::normalizeFilters($filters);
+
         $page       = isset($filters['page']) ? $filters['page'] : null;
         $maxResults = isset($filters['max_results']) ? $filters['max_results'] : null;
 
         $query      = $this->getQueryWithFilters($filters);
+
         $pagination = $this->getPaginator()->paginate(
             $query,
             $page,
@@ -117,5 +120,29 @@ class EventManager implements EventDateManagerInterface
     protected function getPaginator()
     {
         return $this->paginator;
+    }
+
+    /**
+     * Normalizes Filter-Array
+     *
+     * @static
+     * @param array $filters
+     * @return array
+     */
+    public static function normalizeFilters(array $filters)
+    {
+        $filters = array_merge(array(
+            'date_from'     => date('Y-m-d'),
+            'date_to'       => null,
+            'categories'    => null,
+            'max_results'   => 9999,
+            'page'          => 1,
+            'order_by'      => 'ed.startDatetime',
+            'order'         => 'ASC',
+            'gallery_only'  => false,
+            'active'        => true
+        ), $filters);
+
+        return $filters;
     }
 }
