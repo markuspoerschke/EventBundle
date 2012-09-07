@@ -1,37 +1,5 @@
-<section class="events">
+{% extends 'EluceoEventBundle::base.html.twig' %}
 
-    {% for ed in pagination %}
-        <article class="event">
-            <header>
-                <h1>{{ ed.event.name }}</h1>
-                <h2>{{ ed.startDatetime|date }}</h2>
-            </header>
-
-            <p>
-                {{ ed.event.shortDescription }}
-            </p>
-
-            <h3>{{ 'categories'|trans({}, 'EluceoEventBundle') }}</h3>
-            <ul>
-                {% for c in ed.event.categories %}
-                    <li>
-                        <a href="{{ event_category_url(c) }}">
-                            {{ c.name }}
-                        </a>
-                    </li>
-                {% endfor %}
-            </ul>
-
-            <p>
-                <a href="{{ event_date_url(ed) }}">
-                    {{ 'show_event'|trans({}, 'EluceoEventBundle') }}
-                </a>
-            </p>
-        </article>
-    {% endfor %}
-
-    <div class="pagination">
-        {{ pagination.render()|raw }}
-    </div>
-
-</section>
+{% block main %}
+    {% include 'EluceoEventBundle:EventController:base_index.html.twig' %}
+{% endblock %}

@@ -14,6 +14,10 @@
         <source>dates</source>
         <target>Termine</target>
       </trans-unit>
+      <trans-unit id="4">
+        <source>Events</source>
+        <target>Veranstaltungen</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
