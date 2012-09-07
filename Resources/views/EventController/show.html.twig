@@ -11,23 +11,23 @@
         </p>
 
         <p>
-            {{ ed.event.description }}
+            {{ event.description }}
         </p>
 
         <h3>{{ 'dates'|trans({}, 'EluceoEventBundle') }}</h3>
         <ul>
-            {% for ed in event.dates %}
+            {% for ed in event.eventDates %}
                 <li>
-                    {{ date_from_to(ed.startDatetime, ed.endDatetime, ed.noTime) }}
+                    {{ ed.startDatetime|date }}
                 </li>
             {% endfor %}
         </ul>
 
         <h3>{{ 'categories'|trans({}, 'EluceoEventBundle') }}</h3>
         <ul>
-            {% for c in ed.event.categories %}
+            {% for c in event.categories %}
                 <li>
-                    <a href="{{ category_url(c, filters) }}">
+                    <a href="{{ event_category_url(c) }}">
                         {{ c.name }}
                     </a>
                 </li>
@@ -35,7 +35,7 @@
         </ul>
 
         <p>
-            <a href="{{ event_url(event, filters) }}">
+            <a href="{{ event_url(event) }}">
                 {{ 'show_event'|trans({}, 'EluceoEventBundle') }}
             </a>
         </p>
