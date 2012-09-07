@@ -24,6 +24,17 @@ services:
         arguments:
             - "@eluceo.event.routing.url_generator"
 
+    # Blocks:
+    eluceo.event.block.service.categories:
+        class: Eluceo\EventBundle\Block\Service\CategoriesBlockService
+        tags:
+            - { name: sonata.block }
+        arguments:
+            - eluceo.event.block.service.categories
+            - @templating
+        calls:
+            - [ setCategoryManager, [ @eluceo.event.manager.category ] ]
+
     # Sonata Admin
     eluceo.event.admin.event:
         class: %eluceo.event.admin.event.class%

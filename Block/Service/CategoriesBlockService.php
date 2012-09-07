@@ -8,7 +8,7 @@ use Sonata\BlockBundle\Model\BlockInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Sonata\AdminBundle\Validator\ErrorElement;
 
-class CategoriesBlock extends BaseBlockService
+class CategoriesBlockService extends BaseBlockService
 {
     /** @var \Eluceo\EventBundle\Model\Manager\CategoryManagerInterface */
     protected $categoryManager;

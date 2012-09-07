@@ -1,0 +1,12 @@
+<div class="well well-nav">
+    <ul class="nav nav-list">
+        <li class="nav-header">
+            {{ 'Categories'|trans({}, 'EluceoEventBundle') }}
+        </li>
+        {% for c in categories %}
+            <li>
+                <a href="{{ event_category_url(c) }}">{{ c.name }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+</div>

@@ -18,6 +18,10 @@
         <source>Events</source>
         <target>Veranstaltungen</target>
       </trans-unit>
+      <trans-unit id="5">
+        <source>Categories</source>
+        <target>Kategorien</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
