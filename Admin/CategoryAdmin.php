@@ -12,7 +12,8 @@ class CategoryAdmin extends Admin
     {
         $form
             ->add('name')
-            ->add('active', null, array('required' => false));
+            ->add('active', null, array('required' => false))
+            ->add('uniqueSlug', null, array('required' => false));
     }
 
     protected function configureListFields(ListMapper $list)

@@ -24,7 +24,8 @@ class LocationAdmin extends Admin
             ->add('description', null, array('required' => false))
             ->add('street')
             ->add('zip')
-            ->add('city');
+            ->add('city')
+            ->add('uniqueSlug', null, array('required' => false));
     }
 
     protected function configureSideMenu(MenuItemInterface $menu, $action, Admin $childAdmin = null)

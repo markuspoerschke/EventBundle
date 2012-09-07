@@ -11,7 +11,7 @@ class EventAdmin extends Admin
     {
         $list
             ->addIdentifier('name')
-            ->add('location.name')
+            ->add('location')
             ->add('active');
     }
 
@@ -25,7 +25,8 @@ class EventAdmin extends Admin
             ->add('categories', 'sonata_type_model', array('multiple' => true,
                                                            'expanded' => true))
             ->add('location', 'sonata_type_model')
-            ->add('active', null, array('required' => false));
+            ->add('active', null, array('required' => false))
+            ->add('uniqueSlug', null, array('required' => false));
 
         $link_parameters = array('context' => 'eluceo_e_image');
         $form->add('image', 'sonata_type_model_list', array(), array('link_parameters' => $link_parameters));
@@ -33,7 +34,7 @@ class EventAdmin extends Admin
         $form->add('eventDates',
             'sonata_type_collection',
             array(
-                'by_reference' => true ,
+                'by_reference' => true,
             ), array(
                 'edit'      => 'inline',
                 'inline'    => 'table',
