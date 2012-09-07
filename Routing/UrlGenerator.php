@@ -37,7 +37,7 @@ class UrlGenerator implements UrlGeneratorInterface
     {
         $slug = $category->getUniqueSlug();
 
-        $params['slug'] = $slug;
+        $params['categorySlug'] = $slug;
 
         return $this->router->generate(
             'eluceo.event.category.index',
@@ -49,11 +49,11 @@ class UrlGenerator implements UrlGeneratorInterface
     public function eventDateUrl(EventDate $eventDate, $params = array(), $absolute = false)
     {
         $slug                  = $eventDate->getEvent()->getUniqueSlug();
-        $params['slug']        = $slug;
+        $params['uniqueSlug']  = $slug;
         $params['eventDateId'] = $eventDate->getId();
 
         return $this->router->generate(
-            'eluceo.event.category.index',
+            'eluceo.event_date.show',
             $params,
             $absolute
         );
