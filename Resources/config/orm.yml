@@ -1,0 +1,22 @@
+parameters:
+    # Entity Classes:
+    eluceo.event.entity.eventdate.class: Eluceo\EventBundle\Entity\EventDate
+    eluceo.event.entity.event.class: Eluceo\EventBundle\Entity\Event
+
+    # Manager Classes:
+    eluceo.event.manager.eventdate.class: Eluceo\EventBundle\Entity\Manager\EventDateManager
+    eluceo.event.manager.event.class: Eluceo\EventBundle\Entity\Manager\EventManager
+
+services:
+    eluceo.event.manager.eventdate:
+        class: %eluceo.event.manager.eventdate.class%
+        arguments:
+            - @doctrine.orm.entity_manager
+            - %eluceo.event.entity.eventdate.class%
+            - @knp_paginator
+
+    eluceo.event.manager.event:
+        class: %eluceo.event.manager.event.class%
+        arguments:
+            - @doctrine.orm.entity_manager
+            - %eluceo.event.entity.event.class%
