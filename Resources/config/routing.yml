@@ -6,15 +6,19 @@ eluceo.event.index:
 
 eluceo.event.show:
     pattern:
-        /{uniqueSlug}
+        /{year}/{uniqueSlug}
     defaults:
         _controller: EluceoEventBundle:Event:show
+    requirements:
+        year: \d{4}
 
 eluceo.event_date.show:
     pattern:
-        /{uniqueSlug}
+        /{year}/{uniqueSlug}
     defaults:
         _controller: EluceoEventBundle:Event:show
+    requirements:
+        year: \d{4}
 
 eluceo.event.category.index:
     pattern:
