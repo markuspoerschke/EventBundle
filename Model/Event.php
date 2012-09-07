@@ -10,7 +10,6 @@ class Event extends BaseEvent
     function __construct()
     {
         $this->active     = false;
-        $this->uniqueSlug = uniqid('event');
         $this->categories = new ArrayCollection;
         $this->image      = null;
     }
@@ -29,5 +28,10 @@ class Event extends BaseEvent
         foreach ($eventDates as $ed) {
             $this->eventDates[] = $ed;
         }
+    }
+
+    function equals(Event $other)
+    {
+        return $this->id = $other->getId();
     }
 }

@@ -9,12 +9,16 @@ abstract class Location extends BaseLocation
 {
     function __construct()
     {
-        $this->uniqueSlug = uniqid('location');
-        $this->events     = new ArrayCollection;
+        $this->events = new ArrayCollection;
     }
 
     function __toString()
     {
         return $this->getName();
+    }
+
+    function equals(Location $other)
+    {
+        return $this->id == $other->getId();
     }
 }

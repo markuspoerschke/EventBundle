@@ -26,6 +26,10 @@ Eluceo\EventBundle\Entity\Event:
             type: string
             length: 255
             unique: true
+            gedmo:
+                slug:
+                    fields:
+                        - name
 
     manyToMany:
         categories:
