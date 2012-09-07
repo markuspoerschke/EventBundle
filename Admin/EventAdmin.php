@@ -22,16 +22,24 @@ class EventAdmin extends Admin
             ->add('name2')
             ->add('description')
             ->add('shortDescription')
-            ->add('categories', 'sonata_type_model', array('multiple' => true, 'expanded' => true))
+            ->add('categories', 'sonata_type_model', array('multiple' => true,
+                                                           'expanded' => true))
             ->add('location', 'sonata_type_model')
-            ->add('active')
-            ->add('eventDates', 'sonata_type_collection', array(
-                'by_reference' => false,
+            ->add('active', null, array('required' => false));
+
+        $link_parameters = array('context' => 'eluceo_e_image');
+        $form->add('image', 'sonata_type_model_list', array(), array('link_parameters' => $link_parameters));
+
+        $form->add('eventDates',
+            'sonata_type_collection',
+            array(
+                'by_reference' => true ,
             ), array(
-                'edit' => 'inline',
-                'inline' => 'table',
+                'edit'      => 'inline',
+                'inline'    => 'table',
                 'sortable'  => 'position',
-            ));
+            )
+        );
 
         $parent = $this->getParent();
         if ($this->isChild() && $parent instanceof LocationAdmin) {

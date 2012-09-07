@@ -13,6 +13,6 @@ class EventDateAdmin extends Admin
         $form
             ->add('startDatetime')
             ->add('endDatetime')
-            ->add('noTime');
+            ->add('noTime', null, array('required' => false));
     }
 }
