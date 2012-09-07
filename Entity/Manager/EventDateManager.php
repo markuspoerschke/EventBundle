@@ -3,8 +3,9 @@
 namespace Eluceo\EventBundle\Entity\Manager;
 
 use Eluceo\EventBundle\Model\Manager\EventDateManagerInterface;
+use Knp\Component\Pager\Paginator;
 
-class EventManager implements EventDateManagerInterface
+class EventDateManager implements EventDateManagerInterface
 {
     /**
      * @var string
@@ -21,10 +22,11 @@ class EventManager implements EventDateManagerInterface
      */
     protected $paginator;
 
-    function __construct(\Doctrine\ORM\EntityManager $em, $class)
+    function __construct(\Doctrine\ORM\EntityManager $em, $class, Paginator $paginator)
     {
-        $this->em    = $em;
-        $this->class = $class;
+        $this->em        = $em;
+        $this->class     = $class;
+        $this->paginator = $paginator;
     }
 
     /**
@@ -42,31 +44,31 @@ class EventManager implements EventDateManagerInterface
 
         $qb->leftJoin('ed.event', 'e');
 
-        $filters = \Eluceo\EventBundle\Util\EventManipulator::normalizeFilters($filters);
+        $filters = self::normalizeFilters($filters);
 
-        if (null != @$filters['active']) {
+        /*if (null != @$filters['active']) {
             $qb
                 ->where('e.active = :active AND ed.active = :active')
                 ->setParameter('active', $filters['active'] ? 1 : 0);
-        }
+        }*/
 
         // Date From
-        if (@$filters['date_from']) {
-            $qb
-                ->andWhere('ed.start_datetime >= :date_from OR ed.end_datetime >= :date_from')
-                ->setParameter('date_from', $filters['date_from']);
-        }
+//        if (@$filters['date_from']) {
+//            $qb
+//                ->andWhere('ed.start_datetime >= :date_from OR ed.end_datetime >= :date_from')
+//                ->setParameter('date_from', $filters['date_from']);
+//        }
 
         // Date To
-        if (@$filters['date_to']) {
-            $qb->andWhere('ed.start_datetime <= :date_to')
-                ->setParameter('date_to', $filters['date_to']);
-        }
+//        if (@$filters['date_to']) {
+//            $qb->andWhere('ed.start_datetime <= :date_to')
+//                ->setParameter('date_to', $filters['date_to']);
+//        }
 
         // Gallery Only
-        if (@$filters['gallery_only']) {
-            $qb->andWhere('e.gallery IS NOT NULL');
-        }
+//        if (@$filters['gallery_only']) {
+//            $qb->andWhere('e.gallery IS NOT NULL');
+//        }
 
         // Filter Categories
         if (@$filters['categories']) {
