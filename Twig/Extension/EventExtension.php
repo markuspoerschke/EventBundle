@@ -24,9 +24,9 @@ class EventExtension extends \Twig_Extension
     public function getFunctions()
     {
         return array(
-            'event_date_url' => new \Twig_Function_Method($this, 'eventDateUrl'),
-            'category_url'   => new \Twig_Function_Method($this, 'categoryUrl'),
-            'event_url'      => new \Twig_Function_Method($this, 'eventUrl')
+            'event_date_url'     => new \Twig_Function_Method($this, 'eventDateUrl'),
+            'event_category_url' => new \Twig_Function_Method($this, 'categoryUrl'),
+            'event_url'          => new \Twig_Function_Method($this, 'eventUrl')
         );
     }
 
