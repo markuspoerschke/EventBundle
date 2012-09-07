@@ -13,6 +13,7 @@ Eluceo\EventBundle\Entity\Location:
         uniqueSlug:
             type: string
             length: 255
+            unique: true
         description:
             type: text
             nullable: true

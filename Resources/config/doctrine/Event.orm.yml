@@ -25,6 +25,7 @@ Eluceo\EventBundle\Entity\Event:
         uniqueSlug:
             type: string
             length: 255
+            unique: true
 
     manyToMany:
         categories:
