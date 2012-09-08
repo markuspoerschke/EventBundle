@@ -49,6 +49,23 @@ class EventController extends Controller
         return $response;
     }
 
+    public function categoryIndexAction()
+    {
+        $categorySlug = $this->getRequest()->get('categorySlug');
+        $category     = $this->getCategoryManager()->findOneBy(array('uniqueSlug' => $categorySlug));
+
+        if (null == $category) {
+            throw $this->createNotFoundException();
+        }
+
+        $filters               = $this->getRequest()->get('filters', array());
+        $filters['categories'] = array($category->getId());
+
+        $this->getRequest()->request->add(array('filters' => $filters));
+
+        return $this->forward('EluceoEventBundle:Event:index');
+    }
+
     public function showAction()
     {
         $event = $this->getEvent();
@@ -94,6 +111,14 @@ class EventController extends Controller
     protected function getEventDateManager()
     {
         return $this->get('eluceo.event.manager.eventdate');
+    }
+
+    /**
+     * @return \Eluceo\EventBundle\Model\Manager\CategoryManagerInterface
+     */
+    protected function getCategoryManager()
+    {
+        return $this->get('eluceo.event.manager.category');
     }
 
     /**

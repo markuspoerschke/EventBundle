@@ -46,29 +46,29 @@ class EventDateManager implements EventDateManagerInterface
 
         $filters = self::normalizeFilters($filters);
 
-        /*if (null != @$filters['active']) {
+        if (null != @$filters['active']) {
             $qb
                 ->where('e.active = :active AND ed.active = :active')
                 ->setParameter('active', $filters['active'] ? 1 : 0);
-        }*/
+        }
 
         // Date From
-//        if (@$filters['date_from']) {
-//            $qb
-//                ->andWhere('ed.start_datetime >= :date_from OR ed.end_datetime >= :date_from')
-//                ->setParameter('date_from', $filters['date_from']);
-//        }
+        if (@$filters['date_from']) {
+            $qb
+                ->andWhere('ed.startDatetime >= :date_from OR ed.endDatetime >= :date_from')
+                ->setParameter('date_from', $filters['date_from']);
+        }
 
         // Date To
-//        if (@$filters['date_to']) {
-//            $qb->andWhere('ed.start_datetime <= :date_to')
-//                ->setParameter('date_to', $filters['date_to']);
-//        }
+        if (@$filters['date_to']) {
+            $qb->andWhere('ed.startDatetime <= :date_to OR ed.endDateTime <= :date_to')
+                ->setParameter('date_to', $filters['date_to']);
+        }
 
         // Gallery Only
-//        if (@$filters['gallery_only']) {
-//            $qb->andWhere('e.gallery IS NOT NULL');
-//        }
+        if (@$filters['gallery_only']) {
+            $qb->andWhere('e.gallery IS NOT NULL');
+        }
 
         // Filter Categories
         if (@$filters['categories']) {
@@ -76,15 +76,6 @@ class EventDateManager implements EventDateManagerInterface
                 ->andWhere('c.id IN (:categories)')
                 ->setParameter('categories', $filters['categories']);
         }
-
-        // Pagination
-        /*if (null != @$filters['max_per_page']) {
-            $maxResults  = $filters['max_results'];
-            $firstResult = $filters['page'] * $maxResults;
-
-            $qb->setMaxResults($maxResults)
-                ->setFirstResult($firstResult);
-        }*/
 
         // Order
         if (@$filters['order_by']) {
@@ -100,19 +91,9 @@ class EventDateManager implements EventDateManagerInterface
      */
     public function getPaginationWithFilters(array $filters)
     {
-        $filters = self::normalizeFilters($filters);
-
-        $page       = isset($filters['page']) ? $filters['page'] : null;
-        $maxResults = isset($filters['max_results']) ? $filters['max_results'] : null;
-
+        $filters    = self::normalizeFilters($filters);
         $query      = $this->getQueryWithFilters($filters);
-
-        $pagination = $this->getPaginator()->paginate(
-            $query,
-            $page,
-            $maxResults
-        );
-
+        $pagination = $this->getPaginator()->paginate($query);
         return $pagination;
     }
 
@@ -137,8 +118,6 @@ class EventDateManager implements EventDateManagerInterface
             'date_from'     => date('Y-m-d'),
             'date_to'       => null,
             'categories'    => null,
-            'max_results'   => 9999,
-            'page'          => 1,
             'order_by'      => 'ed.startDatetime',
             'order'         => 'ASC',
             'gallery_only'  => false,

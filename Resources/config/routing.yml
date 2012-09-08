@@ -24,4 +24,4 @@ eluceo.event.category.index:
     pattern:
         /{categorySlug}
     defaults:
-        _controller: EluceoEventBundle:Event:index
+        _controller: EluceoEventBundle:Event:categoryIndex

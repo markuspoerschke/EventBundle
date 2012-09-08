@@ -30,4 +30,13 @@ class CategoryManager implements CategoryManagerInterface
             ->orderBy('c.name', 'ASC');
         return $qb->getQuery()->getResult();
     }
+
+    /**
+     * @param array $criteria
+     * @return \Eluceo\EventBundle\Model\Category
+     */
+    public function findOneBy(array $criteria)
+    {
+        return $this->em->getRepository($this->class)->findOneBy($criteria);
+    }
 }

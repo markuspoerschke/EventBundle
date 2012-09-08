@@ -14,7 +14,7 @@ interface EventDateManagerInterface
     /**
      * @abstract
      * @param array $filters
-     * @return mixed
+     * @return \Knp\Component\Pager\Pagination\PaginationInterface
      */
     public function getPaginationWithFilters(array $filters);
 }
