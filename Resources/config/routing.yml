@@ -20,6 +20,13 @@ eluceo.event_date.show:
     requirements:
         year: \d{4}
 
+eluceo.event.export.ical:
+    pattern:
+        /ical
+    defaults:
+        _controller: EluceoEventBundle:EventExport:export
+        type: ical
+
 eluceo.event.category.index:
     pattern:
         /{categorySlug}
