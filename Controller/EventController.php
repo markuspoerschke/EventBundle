@@ -32,6 +32,14 @@ class EventController extends Controller
         return $this->getEventManager()->findOneBy(array($field => $value));
     }
 
+    /**
+     * Shows a list of EventDates
+     *
+     * The result can be filtered by adding parameters to filters[], that will be
+     * passed directly to EventDateManager::findByFilters
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function indexAction()
     {
         $filters    = $this->getRequest()->get('filters', array());
@@ -49,6 +57,14 @@ class EventController extends Controller
         return $response;
     }
 
+    /**
+     * Shows a list of EventDates in a specific Category
+     *
+     * Request will be forwarded after adding filters['categories'] to the Request
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
+     * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
+     */
     public function categoryIndexAction()
     {
         $categorySlug = $this->getRequest()->get('categorySlug');
@@ -66,6 +82,12 @@ class EventController extends Controller
         return $this->forward('EluceoEventBundle:Event:index');
     }
 
+    /**
+     * Shows detail page for an Event
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
+     * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
+     */
     public function showAction()
     {
         $event = $this->getEvent();

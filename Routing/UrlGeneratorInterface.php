@@ -8,9 +8,36 @@ use Eluceo\EventBundle\Model\Category;
 
 interface UrlGeneratorInterface
 {
+    /**
+     * Generates an URL or a path for the given Category
+     *
+     * @abstract
+     * @param Event $event The Event
+     * @param array $params Additional parameters
+     * @param bool $absolute If true an URL else a path will be returned
+     * @return string
+     */
     public function eventUrl(Event $event, $params = array(), $absolute = false);
 
+    /**
+     * Generates an URL or a path for the given Category
+     *
+     * @abstract
+     * @param Category $category The Category
+     * @param array $params Additional parameters
+     * @param bool $absolute If true an URL else a path will be returned
+     * @return string
+     */
     public function categoryUrl(Category $category, $params = array(), $absolute = false);
 
+    /**
+     * Generates an URL or a path for the given EventDate
+     *
+     * @abstract
+     * @param EventDate $eventDate The EventDate
+     * @param array $params Additional parameters
+     * @param bool $absolute If true an URL else a path will be returned
+     * @return string
+     */
     public function eventDateUrl(EventDate $eventDate, $params = array(), $absolute = false);
 }
