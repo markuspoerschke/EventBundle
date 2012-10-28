@@ -44,6 +44,8 @@ services:
             - ~
             - %eluceo.event.model.event.class%
             - SonataAdminBundle:CRUD
+        calls:
+            - [ setLabelTranslatorStrategy, [@sonata.admin.label.strategy.underscore] ]
 
     eluceo.event.admin.event_date:
         class: %eluceo.event.admin.event_date.class%
@@ -53,6 +55,8 @@ services:
             - ~
             - %eluceo.event.model.event_date.class%
             - SonataAdminBundle:CRUD
+        calls:
+            - [ setLabelTranslatorStrategy, [@sonata.admin.label.strategy.underscore] ]
 
     eluceo.event.admin.location:
         class: %eluceo.event.admin.location.class%
@@ -64,6 +68,7 @@ services:
             - SonataAdminBundle:CRUD
         calls:
             - [ "addChild" , [ "@eluceo.event.admin.event" ] ]
+            - [ setLabelTranslatorStrategy, [@sonata.admin.label.strategy.underscore] ]
 
     eluceo.event.admin.category:
         class: %eluceo.event.admin.category.class%
@@ -73,3 +78,5 @@ services:
             - ~
             - %eluceo.event.model.category.class%
             - SonataAdminBundle:CRUD
+        calls:
+            - [ setLabelTranslatorStrategy, [@sonata.admin.label.strategy.underscore] ]
