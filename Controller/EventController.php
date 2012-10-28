@@ -88,15 +88,6 @@ class EventController extends Controller
         return $response;
     }
 
-    public function imageAction()
-    {
-        $event = $this->getEvent();
-
-        if (null == $event) {
-            throw new NotFoundHttpException('Image not found');
-        }
-    }
-
     /**
      * @return \Eluceo\EventBundle\Model\Manager\EventManagerInterface
      */
