@@ -38,7 +38,6 @@ class EventAdmin extends Admin
             ), array(
                 'edit'      => 'inline',
                 'inline'    => 'table',
-                'sortable'  => 'position',
             )
         );
 
