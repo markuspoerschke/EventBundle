@@ -51,7 +51,7 @@ class UrlGenerator implements UrlGeneratorInterface
         $slug                  = $eventDate->getEvent()->getUniqueSlug();
         $params['uniqueSlug']  = $slug;
         $params['eventDateId'] = $eventDate->getId();
-        $params['year']        = '2012';
+        $params['year']        = @$eventDate->getStartDatetime()->format('Y');
 
         return $this->router->generate(
             'eluceo.event_date.show',

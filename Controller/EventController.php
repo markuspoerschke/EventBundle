@@ -98,6 +98,7 @@ class EventController extends Controller
 
         $seo = $this->getSeo();
         $seo->setTitle($event->getName());
+        // TODO Add Conocial URL to SEO. Currently Sonata SEO does not support "link" tag.
 
         $params = array(
             'event' => $event,
@@ -140,5 +141,13 @@ class EventController extends Controller
     protected function getSeo()
     {
         return $this->get('sonata.seo.page');
+    }
+
+    /**
+     * @return \Eluceo\EventBundle\Routing\UrlGenerator
+     */
+    protected function getUrlGenerator()
+    {
+        return $this->get('eluceo.event.routing.url_generator');
     }
 }
