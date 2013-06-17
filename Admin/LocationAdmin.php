@@ -3,9 +3,11 @@
 namespace Eluceo\EventBundle\Admin;
 
 use Sonata\AdminBundle\Admin\Admin;
+use Sonata\AdminBundle\Admin\AdminInterface;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Knp\Menu\ItemInterface as MenuItemInterface;
+use Sonata\AdminBundle\Show\ShowMapper;
 
 class LocationAdmin extends Admin
 {
@@ -17,7 +19,7 @@ class LocationAdmin extends Admin
             ->add('city');
     }
 
-    protected function configureFormFields(FormMapper $form)
+    protected function configureFormFields(FormMapper $form)    
     {
         $form
             ->add('name')
@@ -28,7 +30,19 @@ class LocationAdmin extends Admin
             ->add('uniqueSlug', null, array('required' => false));
     }
 
-    protected function configureSideMenu(MenuItemInterface $menu, $action, Admin $childAdmin = null)
+    protected function configureShowFields(ShowMapper $showMapper)
+    {
+        $showMapper
+            ->add('name')
+            ->add('description')
+            ->add('uniqueSlug')
+            ->with('Address')
+            ->add('street')
+            ->add('zip')
+            ->add('city');
+    }
+
+    protected function configureSideMenu(MenuItemInterface $menu, $action, AdminInterface $childAdmin = null)
     {
         $id = $this->getRequest()->get('id');
 
@@ -36,15 +50,15 @@ class LocationAdmin extends Admin
             $menu->addChild(
                 'edit',
                 array(
-                    'label' => $this->trans('sidemenu_edit'),
+                    'label' => $this->trans('sidemenu.edit'),
                     'uri'   => $this->generateUrl('edit', array('id' => $id))
                 )
             );
 
             $menu->addChild(
-                'projects',
+                'events',
                 array(
-                    'label'=> $this->trans('sidemenu_event_list'),
+                    'label'=> $this->trans('sidemenu.event_list'),
                     'uri'  => $this->generateUrl('eluceo.event.admin.event.list', array('id' => $id))
                 )
             );
