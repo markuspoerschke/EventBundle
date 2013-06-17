@@ -1,27 +1,214 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
-  <file source-language="de" datatype="plaintext" original="file.ext">
-    <body>
-      <trans-unit id="1">
-        <source>categories</source>
-        <target>Kategorien</target>
-      </trans-unit>
-      <trans-unit id="2">
-        <source>show_event</source>
-        <target>Veranstaltung anzeigen</target>
-      </trans-unit>
-      <trans-unit id="3">
-        <source>dates</source>
-        <target>Termine</target>
-      </trans-unit>
-      <trans-unit id="4">
-        <source>Events</source>
-        <target>Veranstaltungen</target>
-      </trans-unit>
-      <trans-unit id="5">
-        <source>Categories</source>
-        <target>Kategorien</target>
-      </trans-unit>
-    </body>
-  </file>
+    <file source-language="de" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="categories">
+                <source>categories</source>
+                <target>Kategorien</target>
+            </trans-unit>
+            <trans-unit id="show_event">
+                <source>show_event</source>
+                <target>Veranstaltung anzeigen</target>
+            </trans-unit>
+            <trans-unit id="dates">
+                <source>dates</source>
+                <target>Termine</target>
+            </trans-unit>
+            <trans-unit id="Events">
+                <source>Events</source>
+                <target>Veranstaltungen</target>
+            </trans-unit>
+            <trans-unit id="Event">
+                <source>Event</source>
+                <target>Veranstaltung</target>
+            </trans-unit>
+            <trans-unit id="Categories">
+                <source>Categories</source>
+                <target>Kategorien</target>
+            </trans-unit>
+            <trans-unit id="Category">
+                <source>Category</source>
+                <target>Kategorie</target>
+            </trans-unit>
+            <trans-unit id="Location">
+                <source>Location</source>
+                <target>Veranstaltungsort</target>
+            </trans-unit>
+
+            <!-- Breadcrumbs begin -->
+            <trans-unit id="breadcrumb.link_event_list">
+                <source>breadcrumb.link_event_list</source>
+                <target>Veranstaltungen</target>
+            </trans-unit>
+            <trans-unit id="breadcrumb.link_location_list">
+                <source>breadcrumb.link_location_list</source>
+                <target>Veranstaltungsorte</target>
+            </trans-unit>
+            <trans-unit id="breadcrumb.link_category_list">
+                <source>breadcrumb.link_category_list</source>
+                <target>Veranstaltungskategorie</target>
+            </trans-unit>
+            <!-- Breadcrumbs end -->
+
+            <!-- List begin -->
+            <trans-unit id="list.label_name">
+                <source>list.label_name</source>
+                <target>Bezeichnung</target>
+            </trans-unit>
+            <trans-unit id="list.label_location">
+                <source>list.label_location</source>
+                <target>Veranstaltungsort</target>
+            </trans-unit>
+            <trans-unit id="list.label_active">
+                <source>list.label_active</source>
+                <target>Aktiv</target>
+            </trans-unit>
+            <trans-unit id="list.label_street">
+                <source>list.label_street</source>
+                <target>Straße</target>
+            </trans-unit>
+            <trans-unit id="list.label_city">
+                <source>list.label_city</source>
+                <target>Stadt</target>
+            </trans-unit>
+            <trans-unit id="list.label_event_dates">
+                <source>list.label_event_dates</source>
+                <target>Termine</target>
+            </trans-unit>
+            <!-- List end -->
+
+            <!-- Form begin -->
+            <trans-unit id="form.label_name">
+                <source>form.label_name</source>
+                <target>Bezeichnung</target>
+            </trans-unit>
+            <trans-unit id="form.label_name2">
+                <source>form.label_name2</source>
+                <target>Bezeichnung 2</target>
+            </trans-unit>
+            <trans-unit id="form.label_description">
+                <source>form.label_description</source>
+                <target>Beschreibung</target>
+            </trans-unit>
+            <trans-unit id="form.label_short_description">
+                <source>form.label_short_description</source>
+                <target>Kurzbeschreibung</target>
+            </trans-unit>
+            <trans-unit id="form.label_categories">
+                <source>form.label_categories</source>
+                <target>Kategorien</target>
+            </trans-unit>
+            <trans-unit id="form.label_location">
+                <source>form.label_location</source>
+                <target>Veranstaltungsort</target>
+            </trans-unit>
+            <trans-unit id="form.label_active">
+                <source>form.label_active</source>
+                <target>Aktiv?</target>
+            </trans-unit>
+            <trans-unit id="form.label_unique_slug">
+                <source>form.label_unique_slug</source>
+                <target>Slug</target>
+            </trans-unit>
+            <trans-unit id="form.label_image">
+                <source>form.label_image</source>
+                <target>Bild</target>
+            </trans-unit>
+            <trans-unit id="form.label_event_dates">
+                <source>form.label_event_dates</source>
+                <target>Termine</target>
+            </trans-unit>
+            <trans-unit id="form.label_start_datetime">
+                <source>form.label_start_datetime</source>
+                <target>Start-Zeit</target>
+            </trans-unit>
+            <trans-unit id="form.label_end_datetime">
+                <source>form.label_end_datetime</source>
+                <target>End-Zeit</target>
+            </trans-unit>
+            <trans-unit id="form.label_no_time">
+                <source>form.label_no_time</source>
+                <target>Ganztägig</target>
+            </trans-unit>
+            <trans-unit id="form.label_street">
+                <source>form.label_street</source>
+                <target>Straße</target>
+            </trans-unit>
+            <trans-unit id="form.label_zip">
+                <source>form.label_zip</source>
+                <target>PLZ</target>
+            </trans-unit>
+            <trans-unit id="form.label_city">
+                <source>form.label_city</source>
+                <target>Stadt</target>
+            </trans-unit>
+            <!-- Form end -->
+
+            <!-- Show begin -->
+            <trans-unit id="show.label_name">
+                <source>show.label_name</source>
+                <target>Bezeichnung</target>
+            </trans-unit>
+            <trans-unit id="show.label_name2">
+                <source>show.label_name2</source>
+                <target>Bezeichnung 2</target>
+            </trans-unit>
+            <trans-unit id="show.label_description">
+                <source>show.label_description</source>
+                <target>Beschreibung</target>
+            </trans-unit>
+            <trans-unit id="show.label_short_description">
+                <source>show.label_short_description</source>
+                <target>Kurzbeschreibung</target>
+            </trans-unit>
+            <trans-unit id="show.label_categories">
+                <source>show.label_categories</source>
+                <target>Kategorien</target>
+            </trans-unit>
+            <trans-unit id="show.label_location">
+                <source>show.label_location</source>
+                <target>Veranstaltungsort</target>
+            </trans-unit>
+            <trans-unit id="show.label_active">
+                <source>show.label_active</source>
+                <target>Aktiv?</target>
+            </trans-unit>
+            <trans-unit id="show.label_unique_slug">
+                <source>show.label_unique_slug</source>
+                <target>Slug</target>
+            </trans-unit>
+            <trans-unit id="show.label_image">
+                <source>show.label_image</source>
+                <target>Bild</target>
+            </trans-unit>
+            <trans-unit id="show.label_event_dates">
+                <source>show.label_event_dates</source>
+                <target>Termine</target>
+            </trans-unit>
+            <trans-unit id="show.label_street">
+                <source>show.label_street</source>
+                <target>Straße</target>
+            </trans-unit>
+            <trans-unit id="show.label_zip">
+                <source>show.label_zip</source>
+                <target>PLZ</target>
+            </trans-unit>
+            <trans-unit id="show.label_city">
+                <source>show.label_city</source>
+                <target>Stadt</target>
+            </trans-unit>
+            <!-- Show end -->
+
+            <!-- Sidemenu begin -->
+            <trans-unit id="sidemenu.edit">
+                <source>sidemenu.edit</source>
+                <target>Bearbeiten</target>
+            </trans-unit>
+            <trans-unit id="sidemenu.event_list">
+                <source>sidemenu.event_list</source>
+                <target>Veranstaltungen</target>
+            </trans-unit>
+            <!-- Sidemenu end -->
+        </body>
+    </file>
 </xliff>
