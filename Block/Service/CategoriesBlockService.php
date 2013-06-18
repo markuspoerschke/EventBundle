@@ -7,6 +7,7 @@ use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\BlockBundle\Model\BlockInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Sonata\AdminBundle\Validator\ErrorElement;
+use Sonata\BlockBundle\Block\BlockContextInterface;
 
 class CategoriesBlockService extends BaseBlockService
 {
@@ -18,7 +19,7 @@ class CategoriesBlockService extends BaseBlockService
         // This is a static block
     }
 
-    function execute(BlockInterface $block, Response $response = null)
+    public function execute(BlockContextInterface $blockContext, Response $response = null)
     {
         $categories = $this->categoryManager->findAll();
 
