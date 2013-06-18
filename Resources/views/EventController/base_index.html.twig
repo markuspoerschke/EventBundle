@@ -35,7 +35,7 @@
     {% endfor %}
 
     <div class="pagination">
-        {{ pagination.render()|raw }}
+        {% include pagination.getTemplate() with pagination.getPaginationData() %}
     </div>
 
 </section>
