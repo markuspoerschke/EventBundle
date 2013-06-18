@@ -97,8 +97,8 @@ class EventController extends Controller
         }
 
         $seo = $this->getSeo();
-        $seo->setTitle($event->getName());
-        // TODO Add Conocial URL to SEO. Currently Sonata SEO does not support "link" tag.
+        $seo->addTitle($event->getName());
+        $seo->setLinkCanonical($this->getUrlGenerator()->eventUrl($event));
 
         $params = array(
             'event' => $event,
