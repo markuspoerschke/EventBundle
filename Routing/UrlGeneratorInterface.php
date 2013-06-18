@@ -5,6 +5,7 @@ namespace Eluceo\EventBundle\Routing;
 use Eluceo\EventBundle\Model\Event;
 use Eluceo\EventBundle\Model\EventDate;
 use Eluceo\EventBundle\Model\Category;
+use Eluceo\EventBundle\Model\Location;
 
 interface UrlGeneratorInterface
 {
@@ -40,4 +41,15 @@ interface UrlGeneratorInterface
      * @return string
      */
     public function eventDateUrl(EventDate $eventDate, $params = array(), $absolute = false);
+
+    /**
+     * Generates an URL or a path for the given Location
+     *
+     * @abstract
+     * @param Location $location
+     * @param array $params
+     * @param bool $absolute
+     * @return mixed
+     */
+    public function locationUrl(Location $location, $params = array(), $absolute = false);
 }
