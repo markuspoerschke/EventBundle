@@ -34,7 +34,6 @@ services:
             - @templating
         calls:
             - [ setCategoryManager, [ @eluceo.event.manager.category ] ]
-            - [ setTranslationDomain, ["EluceoEventBundle"] ]
 
     # Sonata Admin
     eluceo.event.admin.event:
