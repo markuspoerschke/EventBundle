@@ -17,4 +17,9 @@ abstract class EventDate extends BaseEventDate
         $format = $this->noTime ? 'd.m.Y' : 'd.m.Y H:i';
         return $this->startDatetime->format($format);
     }
+
+    public function equals(EventDate $other)
+    {
+        return $other->getId() === $this->id;
+    }
 }

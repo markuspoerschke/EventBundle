@@ -54,7 +54,7 @@ class EventAdmin extends Admin
         $form->add('eventDates',
             'sonata_type_collection',
             array(
-                'by_reference' => true,
+                'by_reference' => false,
             ), array(
                 'edit'      => 'inline',
                 'inline'    => 'table',

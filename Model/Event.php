@@ -19,19 +19,26 @@ class Event extends BaseEvent
         return $this->name;
     }
 
-    public function addEventDates($eventDates)
+    public function addEventDate(EventDate $eventDate)
     {
-        if (!is_array($eventDates)) {
-            $eventDates = array($eventDates);
+        $this->eventDates[] = $eventDate;
+        $eventDate->setEvent($this);
+    }
+
+    public function removeEventDate(EventDate $eventDate)
+    {
+        foreach ($this->eventDates as $key => $item) {
+            if ($eventDate->equals($item)) {
+                unset($this->eventDates[$key]);
+                return true;
+            }
         }
 
-        foreach ($eventDates as $ed) {
-            $this->eventDates[] = $ed;
-        }
+        return false;
     }
 
     function equals(Event $other)
     {
-        return $this->id = $other->getId();
+        return $this->id == $other->getId();
     }
 }
