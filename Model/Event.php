@@ -9,9 +9,10 @@ class Event extends BaseEvent
 {
     function __construct()
     {
-        $this->active     = false;
+        $this->active = false;
         $this->categories = new ArrayCollection;
-        $this->image      = null;
+        $this->image = null;
+        $this->eventDates = new ArrayCollection;
     }
 
     public function __toString()
