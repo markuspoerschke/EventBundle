@@ -13,10 +13,7 @@ abstract class Category extends BaseCategory
         $this->events = new ArrayCollection;
     }
 
-    function __toString()
-    {
-        return $this->name;
-    }
+    function __toString() { return $this->name ?: ''; }
 
     function equals(Category $other)
     {
