@@ -35,6 +35,29 @@
                 <target>Veranstaltungsort</target>
             </trans-unit>
 
+            <!-- Common begin -->
+            <trans-unit id="year">
+                <source>year</source>
+                <target>Jahr</target>
+            </trans-unit>
+            <trans-unit id="month">
+                <source>month</source>
+                <target>Monat</target>
+            </trans-unit>
+            <trans-unit id="day">
+                <source>day</source>
+                <target>Tag</target>
+            </trans-unit>
+            <trans-unit id="hour">
+                <source>hour</source>
+                <target>Stunde</target>
+            </trans-unit>
+            <trans-unit id="minute">
+                <source>minute</source>
+                <target>Minute</target>
+            </trans-unit>
+            <!-- Common ends -->
+
             <!-- Breadcrumbs begin -->
             <trans-unit id="breadcrumb.link_event_list">
                 <source>breadcrumb.link_event_list</source>
