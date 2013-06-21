@@ -48,8 +48,7 @@ Eluceo\EventBundle\Entity\Event:
         eventDates:
             targetEntity: EventDate
             mappedBy: event
-            cascade:
-                - all
+            cascade: [all]
 
     manyToOne:
         location:
@@ -57,7 +56,6 @@ Eluceo\EventBundle\Entity\Event:
             inversedBy: events
         image:
             targetEntity: Application\Sonata\MediaBundle\Entity\Media
-            cascade:
-                - all
+            cascade: [all]
 
     lifecycleCallbacks: {  }
