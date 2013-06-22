@@ -45,7 +45,8 @@ class EventAdmin extends Admin
             ->add('description')
             ->add('shortDescription')
             ->add('categories', 'sonata_type_model', array('multiple' => true,
-                                                           'expanded' => true))
+                                                           'expanded' => true,
+                                                           'by_reference' => false))
             ->add('location', 'sonata_type_model');
 
         $link_parameters = array('context' => 'eluceo_e_image');
