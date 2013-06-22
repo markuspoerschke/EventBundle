@@ -50,7 +50,7 @@ class EventAdmin extends Admin
             ->add('location', 'sonata_type_model');
 
         $link_parameters = array('context' => 'eluceo_e_image');
-        $form->add('image', 'sonata_type_model_list', array(), array('link_parameters' => $link_parameters));
+        $form->add('image', 'sonata_type_model_list', array('required' => false), array('link_parameters' => $link_parameters));
 
         $form->add('eventDates',
             'sonata_type_collection',
