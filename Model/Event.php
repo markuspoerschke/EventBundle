@@ -39,6 +39,24 @@ class Event extends BaseEvent
         return false;
     }
 
+    public function addCategory(Category $category)
+    {
+        $this->categories[] = $category;
+    }
+
+    public function removeCategory(Category $category)
+    {
+        foreach ($this->categories as $key => $item) {
+            if ($category->equals($item)) {
+                unset ($this->categories[$key]);
+
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     public function equals(Event $other)
     {
         return $this->id == $other->getId();
