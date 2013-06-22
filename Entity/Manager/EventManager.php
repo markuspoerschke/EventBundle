@@ -16,14 +16,14 @@ class EventManager implements EventManagerInterface
      */
     protected $em;
 
-    function __construct(\Doctrine\ORM\EntityManager $em, $class)
+    public function __construct(\Doctrine\ORM\EntityManager $em, $class)
     {
         $this->em    = $em;
         $this->class = $class;
     }
 
     /**
-     * @param array $criteria
+     * @param  array                           $criteria
      * @return \Eluceo\EventBundle\Model\Event
      */
     public function findOneBy(array $criteria)

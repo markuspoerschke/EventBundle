@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Eluceo\EventBundle\Model\Base;
 
 abstract class Category

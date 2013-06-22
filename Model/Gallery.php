@@ -7,7 +7,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 
 abstract class Gallery extends BaseGallery
 {
-    function __construct()
+    public function __construct()
     {
         $this->uniqueSlug = uniqid('gallery');
         $this->pictures   = new ArrayCollection;

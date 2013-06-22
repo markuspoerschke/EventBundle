@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 class iCal extends AbstractExport
 {
-    function render()
+    public function render()
     {
         $vCalendar = new VCalendar('ELUCEOEVENTBUNDLE');
         foreach ($this->items as $eventDate) {
@@ -25,7 +25,7 @@ class iCal extends AbstractExport
         return $response;
     }
 
-    function createVEvent(EventDate $eventDate)
+    public function createVEvent(EventDate $eventDate)
     {
         $vEvent = new VEvent('event_' . $eventDate->getId());
 

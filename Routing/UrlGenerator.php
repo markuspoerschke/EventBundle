@@ -16,7 +16,7 @@ class UrlGenerator implements UrlGeneratorInterface
      */
     protected $router;
 
-    function __construct(RouterInterface $router)
+    public function __construct(RouterInterface $router)
     {
         $this->router = $router;
     }

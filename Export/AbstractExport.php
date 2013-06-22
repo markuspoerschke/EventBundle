@@ -6,7 +6,7 @@ abstract class AbstractExport
 {
     protected $items;
 
-    function __construct($items)
+    public function __construct($items)
     {
         $this->items = $items;
     }
@@ -17,5 +17,5 @@ abstract class AbstractExport
      * @abstract
      * @return string
      */
-    abstract function render();
+    abstract public function render();
 }

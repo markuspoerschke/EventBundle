@@ -14,7 +14,7 @@ class CategoriesBlockService extends BaseBlockService
     /** @var \Eluceo\EventBundle\Model\Manager\CategoryManagerInterface */
     protected $categoryManager;
 
-    function buildEditForm(FormMapper $form, BlockInterface $block)
+    public function buildEditForm(FormMapper $form, BlockInterface $block)
     {
         // This is a static block
     }
@@ -35,7 +35,7 @@ class CategoriesBlockService extends BaseBlockService
         return $response;
     }
 
-    function validateBlock(ErrorElement $errorElement, BlockInterface $block)
+    public function validateBlock(ErrorElement $errorElement, BlockInterface $block)
     {
         // No validation needed
     }

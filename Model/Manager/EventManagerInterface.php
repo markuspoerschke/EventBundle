@@ -6,7 +6,7 @@ interface EventManagerInterface
 {
     /**
      * @abstract
-     * @param array $criteria
+     * @param  array                           $criteria
      * @return \Eluceo\EventBundle\Model\Event
      */
     public function findOneBy(array $criteria);

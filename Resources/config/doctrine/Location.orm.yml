@@ -37,4 +37,3 @@ Eluceo\EventBundle\Entity\Location:
         events:
             targetEntity: Event
             mappedBy: location
-

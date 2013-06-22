@@ -14,12 +14,12 @@ class EventExtension extends \Twig_Extension
      */
     protected $urlGenerator;
 
-    function __construct(UrlGeneratorInterface $urlGenerator)
+    public function __construct(UrlGeneratorInterface $urlGenerator)
     {
         $this->urlGenerator = $urlGenerator;
     }
 
-    function getName()
+    public function getName()
     {
         return 'eluceo_event';
     }
@@ -36,9 +36,9 @@ class EventExtension extends \Twig_Extension
     /**
      * Wrapper for UrlGenerator service method
      *
-     * @param EventDate $eventDate
-     * @param array $params
-     * @param bool $absolute
+     * @param  EventDate $eventDate
+     * @param  array     $params
+     * @param  bool      $absolute
      * @return string
      */
     public function eventDateUrl(EventDate $eventDate, $params = array(), $absolute = false)
@@ -49,9 +49,9 @@ class EventExtension extends \Twig_Extension
     /**
      * Wrapper for UrlGenerator service method
      *
-     * @param Category $category
-     * @param array $params
-     * @param bool $absolute
+     * @param  Category $category
+     * @param  array    $params
+     * @param  bool     $absolute
      * @return string
      */
     public function categoryUrl(Category $category, $params = array(), $absolute = false)
@@ -62,9 +62,9 @@ class EventExtension extends \Twig_Extension
     /**
      * Wrapper for UrlGenerator service method
      *
-     * @param Event $event
-     * @param array $params
-     * @param bool $absolute
+     * @param  Event  $event
+     * @param  array  $params
+     * @param  bool   $absolute
      * @return string
      */
     public function eventUrl(Event $event, $params = array(), $absolute = false)

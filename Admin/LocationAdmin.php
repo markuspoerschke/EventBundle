@@ -19,7 +19,7 @@ class LocationAdmin extends Admin
             ->add('city');
     }
 
-    protected function configureFormFields(FormMapper $form)    
+    protected function configureFormFields(FormMapper $form)
     {
         $form
             ->add('name')

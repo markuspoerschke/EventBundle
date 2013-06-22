@@ -16,7 +16,7 @@ class CategoryManager implements CategoryManagerInterface
      */
     protected $em;
 
-    function __construct(\Doctrine\ORM\EntityManager $em, $class)
+    public function __construct(\Doctrine\ORM\EntityManager $em, $class)
     {
         $this->em    = $em;
         $this->class = $class;
@@ -28,11 +28,12 @@ class CategoryManager implements CategoryManagerInterface
         $qb
             ->select('c')
             ->orderBy('c.name', 'ASC');
+
         return $qb->getQuery()->getResult();
     }
 
     /**
-     * @param array $criteria
+     * @param  array                              $criteria
      * @return \Eluceo\EventBundle\Model\Category
      */
     public function findOneBy(array $criteria)

@@ -22,7 +22,7 @@ class EventDateManager implements EventDateManagerInterface
      */
     protected $paginator;
 
-    function __construct(\Doctrine\ORM\EntityManager $em, $class, Paginator $paginator)
+    public function __construct(\Doctrine\ORM\EntityManager $em, $class, Paginator $paginator)
     {
         $this->em        = $em;
         $this->class     = $class;
@@ -30,7 +30,7 @@ class EventDateManager implements EventDateManagerInterface
     }
 
     /**
-     * @param array $filters
+     * @param  array                                        $filters
      * @return \Doctrine\Common\Collections\ArrayCollection
      */
     public function findByFilters(array $filters)
@@ -86,7 +86,7 @@ class EventDateManager implements EventDateManagerInterface
     }
 
     /**
-     * @param array $filters
+     * @param  array                                               $filters
      * @return \Knp\Component\Pager\Pagination\PaginationInterface
      */
     public function getPaginationWithFilters(array $filters)
@@ -94,6 +94,7 @@ class EventDateManager implements EventDateManagerInterface
         $filters    = self::normalizeFilters($filters);
         $query      = $this->getQueryWithFilters($filters);
         $pagination = $this->getPaginator()->paginate($query);
+
         return $pagination;
     }
 
@@ -109,7 +110,7 @@ class EventDateManager implements EventDateManagerInterface
      * Normalizes Filter-Array
      *
      * @static
-     * @param array $filters
+     * @param  array $filters
      * @return array
      */
     public static function normalizeFilters(array $filters)
