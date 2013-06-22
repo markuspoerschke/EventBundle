@@ -14,7 +14,7 @@ abstract class Location extends BaseLocation
 
     public function __toString()
     {
-        return $this->getName();
+        return $this->name ? : '';
     }
 
     public function equals(Location $other)

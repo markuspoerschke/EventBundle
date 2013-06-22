@@ -17,7 +17,7 @@ class Event extends BaseEvent
 
     public function __toString()
     {
-        return $this->name;
+        return $this->name ? : '';
     }
 
     public function addEventDate(EventDate $eventDate)
